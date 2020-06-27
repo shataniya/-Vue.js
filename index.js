@@ -4,32 +4,22 @@ const vm = new Vue({
     el: "#app",
     data: {
         title: "Hello, World!",
-        desc: "这是一条描述信息的文字...",
-        name: "tom",
-        discriptioon: "monno",
-        input: "satan",
-        num: 4,
-        list: [{ name: "tom", age: 10 }, { name: "jerry", age: 5 }],
-        mongo: { name: "mongo", age: 12, gender: "female" },
-        array: [10, 20, 30],
-        msg: "",
-        information: "今天要上传照片。。。"
+        price: 30,
+        msg: ""
     },
     methods: {
         onclick(){
-            this.information = "今天不上传照片。。"
+            this.price = 100
         }
     },
     computed: {
         sum: function(){
-            return this.num + ", Hello"
+            return this.price + 20
         }
     },
     watch: {
         title: function(value, oldval){
-            // console.log(value, oldval)
             this.msg = value
-            // this.desc = value
         }
     }
 })
