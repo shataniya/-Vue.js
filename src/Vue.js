@@ -170,7 +170,7 @@ Vue.prototype.compile = function(){
                             let newcontent = ""
                             if(indexKey){
                                 for(let i=0, len=value.length; i<len; i++){
-                                    newcontent += content.replace(new RegExp(valueKey, "g"), this.exp+"."+i).replace(new RegExp("\\$"+indexKey+"\\$", "g"), i)
+                                    newcontent += content.replace(new RegExp(valueKey, "g"), this.exp+"."+i).replace(new RegExp("\\$"+indexKey+"\\s?", "g"), i)
                                 }
                             }else{
                                 for(let i=0, len=value.length; i<len; i++){
