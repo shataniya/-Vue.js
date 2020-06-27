@@ -152,7 +152,7 @@ Vue.prototype.compile = function(){
                             valueKey = keys[0]
                             indexKey = keys[1]
                             for(let i=0,len=vm[exp].length; i<len; i++){
-                                newcontent += content.replace(new RegExp(valueKey, "g"), exp+"."+i).replace(new RegExp("\\$"+indexKey+"\\$", "g"), i)
+                                newcontent += content.replace(new RegExp(valueKey, "g"), exp+"."+i).replace(new RegExp("\\$"+indexKey+"\\s?", "g"), i)
                             }
                         }else{
                             // 说明没含有索引变量
