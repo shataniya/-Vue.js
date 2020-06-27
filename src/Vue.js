@@ -178,7 +178,7 @@ Vue.prototype.compile = function(){
                                 }
                             }
                             // console.log(newcontent)
-                            newcontent = newcontent.replace(/\$([\w\.\[\]]+?)\$/g, (_match, _exp) => {
+                            newcontent = newcontent.replace(/\$([\w\.\[\]]+)\s?/g, (_match, _exp) => {
                                 return _exp.split(".").reduce((prev, curr) => prev[curr], this.vm)
                             })
                             let dom = document.createElement("div")
@@ -210,11 +210,11 @@ Vue.prototype.compile = function(){
                     // 说明不含有子元素，就是一个常规节点
                     // 判断文本是不是含有data属性
                     // console.log(element.innerHTML)
-                    if(element.innerHTML.match(/\$([\w\.\[\]]+?)\$/g)){
+                    if(element.innerHTML.match(/\$([\w\.\[\]]+)\s?/g)){
                         let innerHTML = element.innerHTML
-                        element.innerHTML = innerHTML.replace(/\$([\w\.\[\]]+?)\$/g, (match, exp) => {
+                        element.innerHTML = innerHTML.replace(/\$([\w\.\[\]]+)\s?/g, (match, exp) => {
                             new Watcher(vm, exp, element, innerHTML, function(value, oldval){
-                                this.element.innerHTML = this.match.replace((/\$([\w\.\[\]]+?)\$/g), (_match, _exp) => {
+                                this.element.innerHTML = this.match.replace((/\$([\w\.\[\]]+)\s?/g), (_match, _exp) => {
                                     if(_exp === this.exp){
                                         return value
                                     }
